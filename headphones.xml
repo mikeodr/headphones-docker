@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Container>
+  <Category>Downloaders: MediaApp:Music</Category>
+  <Name>Headphones</Name>
+  <Overview>
+    Headphones is a automated music grabber for newsgroup users (with limited torrent support).
+  </Overview>
+  <Description>
+    [b][span style='color: #E80000;']Directions:[/span][/b][br]
+    [b]/config[/b] : this path where Headphones stores it's configuration files.[br]
+    [b]/downloads[/b] : this path is used retrieve the downloaded files by your downloader application (e.g. SABnzbd or NZBGet)[br]
+    [b]/tv[/b] : set this path to where you wish Headphones to move your music to.[br][br]
+  </Description>
+  <Registry>https://hub.docker.com/r/mikeodr/headphones-docker/</Registry>
+  <GitHub>https://github.com/mikeodr/headphones-docker</GitHub>
+  <Repository>mikeodr/headphones-docker</Repository>
+  <BindTime>true</BindTime>
+  <Privileged>false</Privileged>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>8181</HostPort>
+        <ContainerPort>8181</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/headphones</HostDir>
+      <ContainerDir>/config</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir></HostDir>
+      <ContainerDir>/downloads</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir></HostDir>
+      <ContainerDir>/music</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <WebUI>http://[IP]:[PORT:8181]/</WebUI>
+  <Banner>https://raw.githubusercontent.com/rembo10/headphones/master/data/images/headphoneslogo.png</Banner>
+  <Icon>https://raw.githubusercontent.com/rembo10/headphones/master/data/images/headphoneslogo.png</Icon>
+</Container>

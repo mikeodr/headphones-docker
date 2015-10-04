@@ -35,6 +35,8 @@ VOLUME /downloads
 # TV directory
 VOLUME /music
 
+ADD config/config.ini /root/config.ini
+
 # Add Headphones to runit
 RUN mkdir /etc/service/headphones
 ADD init/headphones.sh /etc/service/headphones/run
